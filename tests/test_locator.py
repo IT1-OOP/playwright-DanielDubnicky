@@ -11,7 +11,8 @@ def test_page_title():
         page = browser.new_page()
         page.goto(f"file:///{file_path}")
         nadpis_1 = page.locator('h1').first
-        expect(nadpis_1).to_be_visible()
+        nadpis_text = page.locator('text="Nadpis 1"')
+        expect(nadpis_1, nadpis_text).to_be_visible()
         browser.close()
 
 
