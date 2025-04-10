@@ -12,7 +12,14 @@ def test_page_title():
         page.goto(f"file:///{file_path}")
         nadpis_1 = page.locator('h1').first
         nadpis_text = page.locator('text="Nadpis 1"')
-        expect(nadpis_1, nadpis_text).to_be_visible()
+        div_1 = page.locator('.container')
+        expect(nadpis_1).to_be_visible()
+        expect(nadpis_text).to_be_visible()
+        expect(div_1).to_be_visible()
+        expect(nadpis_text).to_have_count(1)
+        w3_link = page.locator('#w3link')
+        expect(w3_link).to_be_visible()
+        w3_link.click() 
         browser.close()
 
 
